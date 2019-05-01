@@ -1,11 +1,18 @@
-const signUpB = document.getElementById('signUp');
-const signInB = document.getElementById('signIn');
-const container = document.getElementById('container');
+const option = document.querySelector('.nav-option');
+const nav = document.querySelector('.nav-links');
+const navLinks = document.querySelectorAll('.nav-links li');
 
-signUpB.addEventListener('click', () => {
-  container.classList.add('right-panel-active');
-});
+option.addEventListener('click', () => {
+  nav.classList.toggle('nav-active');
 
-signInB.addEventListener('click', () => {
-  container.classList.remove('right-panel-active');
+  //Animation links
+  navLinks.forEach((link, index) => {
+    if (link.style.animation) {
+      link.style.animation = '';
+    } else {
+      link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 +
+        0.3}s`;
+    }
+  });
+  option.classList.toggle('xx');
 });
